@@ -226,8 +226,10 @@ const pageStyles = String.raw`
   .as-hero {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: var(--as-space-32);
+    text-align: center;
     margin: var(--as-space-8);
     padding: clamp(32px, 5vw, 72px);
     border-radius: var(--as-radius-boundary);
@@ -301,7 +303,9 @@ const pageStyles = String.raw`
 
   .as-boundary {
     position: relative;
+    width: 100%;
     max-width: 560px;
+    text-align: left;
     margin-top: 14px;
     padding: 34px 18px 18px;
     border: var(--as-c-boundary-width-hero) solid var(--as-color-hero-fresh);
