@@ -169,6 +169,13 @@ const pageStyles = String.raw`
     padding: clamp(24px, 6vw, 40px);
   }
 
+  .as-auth-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .as-brand {
     display: inline-flex;
     align-items: center;
