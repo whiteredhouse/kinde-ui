@@ -36,7 +36,9 @@ export const Root = ({
         <link href={getSVGFaviconUrl()} rel="icon" type="image/svg+xml" />
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
-        <style>{getStyles()}</style>
+        {/* Raw insert: escaping a large stylesheet as a text child runs past
+            Kinde's per-page instruction limit. The CSS is our own constant. */}
+        <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
       </head>
 
       <body>
