@@ -9,7 +9,12 @@ if (!repo) {
   process.exit(1);
 }
 
-const css = readFileSync(join(repo, "design-system", "tokens.css"), "utf8");
+// Minified here, at build time: Kinde renders pages under an instruction limit.
+const css = readFileSync(join(repo, "design-system", "tokens.css"), "utf8")
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/\s+/g, " ")
+  .replace(/\s*([{}:;,])\s*/g, "$1")
+  .trim();
 if (css.includes("`") || css.includes("${")) {
   console.error("tokens.css contains a backtick or ${, which the template literal can't hold.");
   process.exit(1);
@@ -21,6 +26,6 @@ const header = [
 ].join("\n");
 writeFileSync(
   new URL("../kindeSrc/styles/tokens.ts", import.meta.url),
-  `${header}\nexport const designTokens = String.raw\`\n${css}\`;\n`,
+  `${header}\nexport const designTokens = String.raw\`${css}\`;\n`,
 );
 console.log("Updated kindeSrc/styles/tokens.ts");
