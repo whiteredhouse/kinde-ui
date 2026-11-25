@@ -19,13 +19,17 @@ export const Root = ({
   request,
 }: RootProps): React.JSX.Element => {
   return (
-    <html dir={request.locale.isRtl ? "rtl" : "ltr"} lang={request.locale.lang}>
+    <html
+      dir={request.locale.isRtl ? "rtl" : "ltr"}
+      lang={request.locale.lang}
+      data-kinde-theme="user-preference"
+    >
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="noindex" name="robots" />
         <meta content={getKindeCSRF()} name="csrf-token" />
-        <meta content="light" name="color-scheme" />
+        <meta content="light dark" name="color-scheme" />
         <meta content="nopagereadaloud" name="google" />
         <title>{context.widget.content.page_title}</title>
 
