@@ -1,27 +1,11 @@
 import React from "react";
-
-const styles: {
-  container: React.CSSProperties;
-  sidePanel: React.CSSProperties;
-} = {
-  container: {
-    display: "flex",
-    height: "100vh",
-  },
-  sidePanel: {
-    borderRadius: "1rem",
-    backgroundColor: "dodgerblue",
-    flex: 1,
-    margin: "0.5rem",
-    maxWidth: "1024px",
-  },
-};
+import { Hero } from "../components/hero";
 
 export const DefaultLayout = (props: { children: React.ReactNode }) => {
   return (
-    <div style={styles.container}>
+    <div className="as-auth">
       {props.children}
-      <div style={styles.sidePanel}></div>
+      <Hero />
     </div>
   );
 };

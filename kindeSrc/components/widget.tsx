@@ -2,35 +2,18 @@
 
 import React from "react";
 import { getKindeWidget } from "@kinde/infrastructure";
-
-const styles: {
-  loginForm: React.CSSProperties;
-  heading: React.CSSProperties;
-  description: React.CSSProperties;
-} = {
-  loginForm: {
-    minWidth: "400px",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  heading: {
-    fontWeight: "600",
-    fontSize: "2rem",
-  },
-  description: {
-    marginBottom: "1.5rem",
-  },
-};
+import { Brand } from "./brand";
 
 export const Widget = (props: { heading: string; description: string }) => {
   return (
-    <main style={styles.loginForm}>
-      <div style={{ padding: "2rem" }}>
-        <h2 style={styles.heading}>{props.heading}</h2>
-        <p style={styles.description}>{props.description}</p>
-        {getKindeWidget()}
+    <main className="as-auth-main">
+      <div className="as-auth-card">
+        <Brand />
+        <h1 className="as-auth-title">{props.heading}</h1>
+        {props.description && (
+          <p className="as-auth-description">{props.description}</p>
+        )}
+        <div className="as-auth-widget">{getKindeWidget()}</div>
       </div>
     </main>
   );
